@@ -8,3 +8,5 @@ PyPDF2
 langchain-chains
 openai
 pinecone
+PdfReader
+langchain-core
