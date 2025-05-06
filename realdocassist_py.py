@@ -17,7 +17,7 @@ import streamlit as st
 #secrets
 import os
 os.environ["OPENAI_API_KEY"]=st.secrets["OPENAI_API_KEY"]
-os.environ["PINCONE_API_KEY"]=st.secrets["PINCONE_API_KEY"]
+os.environ["PINECONE_API_KEY"]=st.secrets["PINECONE_API_KEY"]
 
 #PDF Reader import
 from PyPDF2 import PdfReader
