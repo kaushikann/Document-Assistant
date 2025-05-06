@@ -72,7 +72,7 @@ st.header("Document Assistant")
 st.subheader("Upload a PDF document and ask questions about it")
 uploaded_file=st.file_uploader("Upload", type="pdf")
 st.button(label="Process")
-if st.button("Process") and uploaded_file is not None:
+if st.button("Process"):
     st.write("Processing...")
     documents=process_file(uploaded_file)
     chunks=pdf_splitter(documents)
