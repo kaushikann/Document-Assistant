@@ -42,10 +42,10 @@ finalquestion_prompt=PromptTemplate(template=finalquestion_template, input_varia
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 
 #Retrieval QA import
-from langchain_chains import RetrievalQA
+from langchain.chains import RetrievalQA
 
 #LLm Chain import
-from langchain_chains import LLMChain
+from langchain.chains import LLMChain
 docchain= finalquestion_prompt | gpt4omini
 
 #Extracting document function
