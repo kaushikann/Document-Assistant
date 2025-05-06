@@ -71,14 +71,19 @@ def vectordb(chunks):
 st.header("Document Assistant")
 st.subheader("Upload a PDF document and ask questions about it")
 uploaded_file=st.file_uploader("Upload", type="pdf")
-if st.button("Process"):
-    st.write("Processing...")
-    documents=process_file(uploaded_file)
-    chunks=pdf_splitter(documents)
-    vectorstore=vectordb(chunks)
-    st.write("Done!")
-question=st.text_area("Ask a question about the document",label_visibility="visible")
-qa=RetrievalQA.from_chain_type(llm=gpt4omini, chain_type="stuff", retriever=vectorstore.as_retriever())
-context=qa.invoke(question)
-finalresponse= docchain.invoke({"question":question, "context":context})
-st.write(finalresponse)
+i=0
+for i in range(10):
+    if st.button("Process"):
+        st.write("Processing...")
+        documents=process_file(uploaded_file)
+        chunks=pdf_splitter(documents)
+        vectorstore=vectordb(chunks)
+        st.write("Done!")
+        question=st.text_area("Ask a question about the document",label_visibility="visible")
+        qa=RetrievalQA.from_chain_type(llm=gpt4omini, chain_type="stuff", retriever=vectorstore.as_retriever())
+        context=qa.invoke(question)
+        finalresponse= docchain.invoke({"question":question, "context":context})
+        st.write(finalresponse)
+        i=i+1
+    else:
+        st.write("Please upload a document")
