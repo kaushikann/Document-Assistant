@@ -5,7 +5,6 @@ streamlit
 langchain-pinecone
 langchain-community
 PyPDF2
-langchain-chains
 openai
 pinecone
 PdfReader
