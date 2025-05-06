@@ -58,7 +58,8 @@ def process_file(uploaded_file):
 
 #Splitting function
 def pdf_splitter(text):
-    chunks=text_splitter.split_text(text)
+    chunks_text=text_splitter.split_text(text)
+    chunks=text_splitter.create_documents(chunks_text)
     return chunks
 
 #vector function
