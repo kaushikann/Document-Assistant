@@ -12,7 +12,7 @@ from langchain_openai import ChatOpenAI
 gpt4omini=ChatOpenAI(model="gpt-4o-mini", temperature=0.5)
 
 #Streamlit import
-import Streamlit as st
+import streamlit as st
 
 #secrets
 import os
