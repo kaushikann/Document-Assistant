@@ -79,7 +79,8 @@ if st.button("Process"):
     vectorstore=vectordb(chunks)
     st.write("Done!")
     question=st.text_area("Ask a question about the document",label_visibility="visible")
-    qa=RetrievalQA.from_chain_type(llm=gpt4omini, chain_type="stuff", retriever=vectorstore.as_retriever())
-    context=qa.invoke(question)
-    finalresponse= docchain.invoke({"question":question, "context":context})
-    st.write(finalresponse)
+    if st.button("Ask"):
+        qa=RetrievalQA.from_chain_type(llm=gpt4omini, chain_type="stuff", retriever=vectorstore.as_retriever())
+        context=qa.invoke(question)
+        finalresponse= docchain.invoke({"question":question, "context":context})
+        st.write(finalresponse)
