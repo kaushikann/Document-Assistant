@@ -78,7 +78,7 @@ if st.button("Process"):
     chunks=pdf_splitter(documents)
     vectorstore=vectordb(chunks)
     st.write("Done!")
-    question=st.text_area("Ask a question about the document",label_visibility="visible")
+    question=st.text_input("Ask a question about the document")
     if st.button("Ask"):
         qa=RetrievalQA.from_chain_type(llm=gpt4omini, chain_type="stuff", retriever=vectorstore.as_retriever())
         context=qa.invoke(question)
