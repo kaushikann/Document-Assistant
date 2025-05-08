@@ -80,7 +80,11 @@ if st.button("Process"):
     st.write("Done!")
     question=st.text_input("Ask a question about the document")
     if st.button("Ask"):
+        st.write("button pressed")
         qa=RetrievalQA.from_chain_type(llm=gpt4omini, chain_type="stuff", retriever=vectorstore.as_retriever())
+        st.write("Retrieval QA done")
         context=qa.invoke(question)
+        st.write("context done")
         finalresponse= docchain.invoke({"question":question, "context":context})
-        st.write(finalresponse)
+        st.write("llm invoked")
+        st.write(finalresponse.content)
