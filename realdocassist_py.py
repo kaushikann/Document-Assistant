@@ -88,3 +88,8 @@ if st.button("Process"):
         finalresponse= docchain.invoke({"question":question, "context":context})
         st.write("llm invoked")
         st.write(finalresponse.content)
+    else:
+        st.write("Couldnt detect Ask")
+
+else:
+    st.write("in outer if")
